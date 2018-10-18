@@ -1,0 +1,197 @@
+$thumb-shadow-size: 1px !default;
+$thumb-shadow-blur: 0px !default;
+$thumb-shadow-color: rgba(0, 0, 0, 0.2) !default;
+
+$track-shadow-size: 0px !default;
+$track-shadow-blur: 1px !default;
+$track-shadow-color: rgba(0, 0, 0, 0.2) !default;
+
+$ie-bottom-track-color: darken(rgba(0, 0, 0, 0.26), 5%) !default;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color,
+    0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track {
+  cursor: default;
+  box-sizing: border-box;
+  height: var(--track-height);
+  transition: all 0.4s var(--transition-timing-function);
+  border: var(--track-border-width) solid var(--track-border-color);
+  border-radius: var(--track-radius);
+  width: 100%;
+  &:active {
+    cursor: var(--draging-cursor);
+  }
+}
+
+@mixin thumb($adjustment: 0) {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+  background: var(--secondary);
+  border: var(--thumb-border-width) solid var(--thumb-border-color);
+  border-radius: var(--thumb-radius);
+  cursor: var(--drag-cursor);
+  height: calc(var(--thumb-height) + #{$adjustment}px);
+  width: calc(var(--thumb-width) + #{$adjustment}px);
+  margin-top: calc(
+    var(--track-height) / 2.1 -
+      (var(--thumb-height) + var(--thumb-border-width) + #{$adjustment}px) / 1.9
+  );
+
+  &:active {
+    cursor: var(--draging-cursor);
+  }
+}
+
+@mixin disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+:host {
+  --primary: #66c56b;
+  --secondary: #227a1f;
+  --drag-cursor: grab;
+  --draging-cursor: grabbing;
+  --track-height: 4px;
+  --track-radius: 2px;
+  --track-border-width: 1px;
+  --track-border-color: rgba(143, 143, 143, 0.26);
+  --thumb-height: 17px;
+  --thumb-width: 17px;
+  --thumb-radius: 50%;
+  --thumb-border-width: 2px;
+  --thumb-border-color: rgba(143, 143, 143, 0.26);
+  --transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  // padding: 8px;
+  outline: 0;
+  vertical-align: middle;
+
+  height: auto;
+  min-width: 128px;
+
+  input {
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 100%;
+    transform: translate(-50%, -50%);
+
+    -webkit-appearance: none;
+    background: transparent;
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
+    &:focus {
+      outline: 0;
+
+      &::-webkit-slider-runnable-track {
+        background: var(--primary);
+      }
+
+      &::-ms-fill-lower {
+        background: var(--primary);
+      }
+
+      &::-ms-fill-upper {
+        background: var(--primary);
+      }
+    }
+
+    &::-webkit-slider-runnable-track {
+      @include track;
+      @include shadow(
+        $track-shadow-size,
+        $track-shadow-blur,
+        $track-shadow-color
+      );
+      background: var(--primary);
+    }
+
+    &::-webkit-slider-thumb {
+      @include thumb;
+      -webkit-appearance: none;
+    }
+
+    &::-moz-range-track {
+      @include shadow(
+        $track-shadow-size,
+        $track-shadow-blur,
+        $track-shadow-color
+      );
+      @include track;
+      background: var(--primary);
+    }
+
+    &::-moz-range-thumb {
+      @include thumb(-4);
+    }
+
+    &::-ms-track {
+      @include track;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+
+    &::-ms-fill-lower {
+      @include shadow(
+        $track-shadow-size,
+        $track-shadow-blur,
+        $track-shadow-color
+      );
+      background: $ie-bottom-track-color;
+      border-radius: calc(var(--track-radius) * 2);
+    }
+
+    &::-ms-fill-upper {
+      @include shadow(
+        $track-shadow-size,
+        $track-shadow-blur,
+        $track-shadow-color
+      );
+      background: var(--primary);
+      border-radius: calc(var(--track-radius) * 2);
+    }
+
+    &::-ms-thumb {
+      @include thumb(-4);
+      margin-top: calc(var(--track-height) / 4);
+    }
+
+    &:disabled {
+      &::-webkit-slider-thumb {
+        @include disabled;
+      }
+
+      &::-moz-range-thumb {
+        @include disabled;
+      }
+
+      &::-ms-thumb {
+        @include disabled;
+      }
+
+      &::-webkit-slider-runnable-track {
+        @include disabled;
+      }
+
+      &::-ms-fill-lower {
+        @include disabled;
+      }
+
+      &::-ms-fill-upper {
+        @include disabled;
+      }
+    }
+  }
+}

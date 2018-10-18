@@ -1,0 +1,31 @@
+{
+  "name": "ip-range",
+  "version": "0.0.1",
+  "description": "A simple wrapper around <input type='range' /> HTML5 Element.",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "~0.13.2",
+    "@stencil/sass": "^0.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wanoo21/ip-range.git"
+  },
+  "author": "Ion Prodan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wanoo21/ip-range/issues"
+  },
+  "homepage": "https://github.com/wanoo21/ip-range"
+}
