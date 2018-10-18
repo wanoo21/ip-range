@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>IP Range</title>
-  <script src="/build/ip-range.js"></script>
+  <script src="/build/ip-slider.js"></script>
   <style>
     body {
       padding: 0;
@@ -17,7 +17,7 @@
       height: 100vh;
     }
 
-    ip-range {
+    ip-slider {
       /* flex: 1; */
       width: 300px;
     }
@@ -25,13 +25,13 @@
 </head>
 
 <body>
-  <ip-range value="90" oninput="oninput(event)"></ip-range>
+  <ip-slider value="90" oninput="oninput(event)"></ip-slider>
 
   <script>
-    const range = document.querySelector('ip-range');
+    const slider = document.querySelector('ip-slider');
     function input(ev) {
       console.log(ev);
-      console.log(range.value);
+      console.log(slider.value);
     }
   </script>
 </body>

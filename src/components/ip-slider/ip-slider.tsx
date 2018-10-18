@@ -8,11 +8,11 @@ import {
 } from '@stencil/core';
 
 @Component({
-  tag: 'ip-range',
-  styleUrl: 'ip-range.scss',
+  tag: 'ip-slider',
+  styleUrl: 'ip-slider.scss',
   shadow: true
 })
-export class IpRange implements ComponentInterface {
+export class IpSLider implements ComponentInterface {
   @Element()
   el: HTMLElement;
 

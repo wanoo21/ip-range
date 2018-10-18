@@ -1,6 +1,7 @@
 {
-  "name": "ip-range",
+  "name": "ip-slider",
   "version": "0.0.1",
+  "private": false,
   "description": "A simple wrapper around <input type='range' /> HTML5 Element.",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",

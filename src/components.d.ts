@@ -12,14 +12,14 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface IpRange {
+  interface IpSlider {
     'disabled': boolean;
     'max': number;
     'min': number;
     'step': number;
     'value': number;
   }
-  interface IpRangeAttributes extends StencilHTMLAttributes {
+  interface IpSliderAttributes extends StencilHTMLAttributes {
     'disabled'?: boolean;
     'max'?: number;
     'min'?: number;
@@ -31,26 +31,26 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'IpRange': Components.IpRange;
+    'IpSlider': Components.IpSlider;
   }
 
   interface StencilIntrinsicElements {
-    'ip-range': Components.IpRangeAttributes;
+    'ip-slider': Components.IpSliderAttributes;
   }
 
 
-  interface HTMLIpRangeElement extends Components.IpRange, HTMLStencilElement {}
-  var HTMLIpRangeElement: {
-    prototype: HTMLIpRangeElement;
-    new (): HTMLIpRangeElement;
+  interface HTMLIpSliderElement extends Components.IpSlider, HTMLStencilElement {}
+  var HTMLIpSliderElement: {
+    prototype: HTMLIpSliderElement;
+    new (): HTMLIpSliderElement;
   };
 
   interface HTMLElementTagNameMap {
-    'ip-range': HTMLIpRangeElement
+    'ip-slider': HTMLIpSliderElement
   }
 
   interface ElementTagNameMap {
-    'ip-range': HTMLIpRangeElement;
+    'ip-slider': HTMLIpSliderElement;
   }
 
 
