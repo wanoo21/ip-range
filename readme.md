@@ -7,7 +7,7 @@ A simple wrapper around `<input type="range" />` HTMl5 Element.
 
 The range input itself has browser support about like: Firefox 23+, Safari 4+, iOS 5+, Chrome 6+, Opera 11+, IE 10+, Android 4.2+. So pretty good. This custom component should largely match that.
 
-Inspired from [CSS-TRICKS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/).
+Inspired by [CSS-TRICKS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/).
 
 ![ip range example](https://image.ibb.co/iSZ1O0/ip-range-ex.gif)
 
@@ -38,7 +38,7 @@ Include `ip-range` element in you page:
 <ip-range value="0" min="0" max="0" step="1"></ip-range>
 ```
 
-Add `disabled` attribute in order to disabled.
+Add `disabled` attribute in order to disable.
 
 You can get the **value** listening **oninput** event:
 
