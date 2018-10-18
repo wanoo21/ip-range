@@ -73,3 +73,24 @@ console.log(ipSlider.max);
 console.log(ipSlider.step);
 console.log(ipSlider.disabled);
 ```
+
+## Styles
+
+Use these variables in order to change color or other stuff!
+
+```css
+--primary: #66c56b;
+--secondary: #227a1f;
+--drag-cursor: grab;
+--draging-cursor: grabbing;
+--track-height: 4px;
+--track-radius: 2px;
+--track-border-width: 1px;
+--track-border-color: rgba(143, 143, 143, 0.26);
+--thumb-height: 17px;
+--thumb-width: 17px;
+--thumb-radius: 50%;
+--thumb-border-width: 2px;
+--thumb-border-color: rgba(143, 143, 143, 0.26);
+--transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+```
