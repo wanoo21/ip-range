@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>HSL Player</title>
+  <title>IP Range</title>
   <script src="/build/ip-range.js"></script>
   <style>
     body {
@@ -25,19 +25,14 @@
 </head>
 
 <body>
-  <ip-range></ip-range>
+  <ip-range value="90" oninput="oninput(event)"></ip-range>
 
   <script>
     const range = document.querySelector('ip-range');
-
     function input(ev) {
-      console.log(range.min);
+      console.log(ev);
+      console.log(range.value);
     }
-    // console.dir(range.getAttribute('value'));
-
-    // setTimeout(() => {
-    //   range.disabled = true;
-    // }, 3000)
   </script>
 </body>
 
