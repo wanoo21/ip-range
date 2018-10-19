@@ -14,9 +14,9 @@ import {
 })
 export class IpSLider implements ComponentInterface {
   @Element()
-  el: HTMLElement;
+  private el: HTMLElement;
 
-  range: HTMLInputElement;
+  private range: HTMLInputElement;
 
   @Prop({ attr: 'value', mutable: true })
   value: number = 0;
@@ -34,18 +34,18 @@ export class IpSLider implements ComponentInterface {
   disabled: boolean = false;
 
   @Event()
-  input: EventEmitter;
+  private input: EventEmitter;
 
   componentDidLoad() {
     this.range = this.el.shadowRoot.querySelector('input');
-    this.setAttributes();
+    this._setAttributes();
   }
 
   componentDidUpdate() {
-    this.setAttributes();
+    this._setAttributes();
   }
 
-  setAttributes() {
+  private _setAttributes() {
     this.el.setAttribute('aria-disabled', `${this.disabled}`);
     this.el.setAttribute('aria-valuemax', `${this.max}`);
     this.el.setAttribute('aria-valuemin', `${this.min}`);
@@ -53,7 +53,7 @@ export class IpSLider implements ComponentInterface {
     this.el.setAttribute('value', `${+this.value}`);
   }
 
-  onInput(srcEvent: Event) {
+  private _onInput(srcEvent: Event) {
     srcEvent.stopPropagation();
     const { value, min, max, step } = this.range;
     this.value = +value;
@@ -70,7 +70,7 @@ export class IpSLider implements ComponentInterface {
     return (
       <input
         type="range"
-        onInput={ev => this.onInput(ev)}
+        onInput={ev => this._onInput(ev)}
         disabled={this.disabled}
         min={this.min}
         max={this.max}
